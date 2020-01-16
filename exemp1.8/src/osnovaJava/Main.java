@@ -4,23 +4,37 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите год");
-        int a = scanner.nextInt();
-        if ((a % 4) != 0) {
-            System.out.println("не високосный");
+    public static boolean LeapYear(int year) {
+        if ((year % 4) != 0) {
+            return false;
         } else {
-            if ((a % 100) != 0) {
-                System.out.println("Високосный");
+            if ((year % 100) != 0) {
+                return true;
 
             } else {
-                if ((a % 400) == 0) {
-                    System.out.println("Високосный");
+                if ((year % 400) == 0) {
+                    return true;
                 } else {
-                    System.out.println("не високосный");
+                    return false;
                 }
             }
         }
     }
+
+    public static void DisplayLeapYear(int year){
+        if (LeapYear(year)){
+            System.out.println("Високосный");
+        }else {
+            System.out.println("не високосный");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите год");
+        int year = scanner.nextInt();
+
+        DisplayLeapYear(year);
+    }
 }
+
